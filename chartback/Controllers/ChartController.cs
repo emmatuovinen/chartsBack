@@ -40,9 +40,19 @@ namespace chartback.Controllers
         /// <returns></returns>
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<string> Get(int ChartId)
         {
-            return "value";
+            //return "value";
+
+            Chart chart = db.Chart.Find(ChartId);
+
+            var chartAndContent = from b in db.Chart
+                                  join c in db.Content on b.ChartId equals c.ChartId
+                                  where b.ChartId == chart.ChartId
+                                  select new { ChartName = chart.Headline, X = c.ValueX,  Y = c.ValueY };
+
+            return Ok(chartAndContent);
+
         }
 
         /// <summary>
@@ -51,8 +61,21 @@ namespace chartback.Controllers
         /// <param name="value"></param>
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Chart chart)
         {
+            Chart c = new Chart();
+
+            var chartCount = (from a in db.Chart
+                             select a).Count();
+
+            c.ChartId = chartCount + 1;
+            c.Headline = chart.Headline;
+            c.Description = chart.Description;
+
+            db.Chart.Add(c);
+            db.SaveChanges();
+
+
         }
 
         // PUT api/values/5

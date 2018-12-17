@@ -17,7 +17,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:chartback.Controllers.ChartController.Post(System.String)">
+        <member name="M:chartback.Controllers.ChartController.Post(chartback.Models.Chart)">
             <summary>
             Create a chart
             </summary>
