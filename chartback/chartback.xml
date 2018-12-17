@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>chartback</name>
+    </assembly>
+    <members>
+        <member name="M:chartback.Controllers.ChartController.Get">
+            <summary>
+            Get all charts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:chartback.Controllers.ChartController.Get(System.Int32)">
+            <summary>
+            Get chart with content
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:chartback.Controllers.ChartController.Post(System.String)">
+            <summary>
+            Create a chart
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:chartback.Controllers.ChartController.Delete(System.Int32)">
+            <summary>
+            Delete a chart and all content
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:chartback.Controllers.ContentController.Get">
+            <summary>
+            Not really necessary
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:chartback.Controllers.ContentController.Get(System.Int32)">
+            <summary>
+            Not enabled
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:chartback.Controllers.ContentController.Post(System.String)">
+            <summary>
+            Create content to chart
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:chartback.Controllers.ContentController.Delete(System.Int32)">
+            <summary>
+            Delete an individual chart element
+            </summary>
+            <param name="id"></param>
+        </member>
+    </members>
+</doc>
