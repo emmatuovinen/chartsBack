@@ -36,6 +36,17 @@ namespace chartback
             services.AddDbContext<ChartDBContext>(options =>
             options.UseSqlServer(connection));
 
+            // CORS:
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MyPolicy", builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                });
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "Chart API", Version = "v1" });
@@ -53,6 +64,7 @@ namespace chartback
             {
                 app.UseDeveloperExceptionPage();
             }
+
 
             //Swagger:
             app.UseSwagger();

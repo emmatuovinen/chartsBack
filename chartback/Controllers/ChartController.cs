@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using chartback.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace chartback.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class ChartController : ControllerBase
@@ -68,7 +70,7 @@ namespace chartback.Controllers
             var chartCount = (from a in db.Chart
                              select a).Count();
 
-            c.ChartId = chartCount + 1;
+            //c.ChartId = chartCount + 1;
             c.Headline = chart.Headline;
             c.Description = chart.Description;
 

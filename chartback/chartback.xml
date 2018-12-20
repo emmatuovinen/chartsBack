@@ -42,7 +42,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:chartback.Controllers.ContentController.Post(System.String)">
+        <member name="M:chartback.Controllers.ContentController.Post(chartback.Models.Content)">
             <summary>
             Create content to chart
             </summary>
