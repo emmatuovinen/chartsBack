@@ -42,11 +42,11 @@ namespace chartback.Controllers
         /// <returns></returns>
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int ChartId)
+        public ActionResult<string> Get(int id)
         {
             //return "value";
 
-            Chart chart = db.Chart.Find(ChartId);
+            Chart chart = db.Chart.Find(id);
 
             var chartAndContent = from b in db.Chart
                                   join c in db.Content on b.ChartId equals c.ChartId
@@ -94,6 +94,10 @@ namespace chartback.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+           Chart chart = db.Chart.Find(id);
+
+            db.Chart.Remove(chart);
+            db.SaveChanges();
         }
     }
 }
