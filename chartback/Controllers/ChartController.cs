@@ -51,7 +51,7 @@ namespace chartback.Controllers
             var chartAndContent = from b in db.Chart
                                   join c in db.Content on b.ChartId equals c.ChartId
                                   where b.ChartId == chart.ChartId
-                                  select new { ChartName = chart.Headline, X = c.ValueX,  Y = c.ValueY };
+                                  select new { X = c.ValueX,  Y = c.ValueY };
 
             return Ok(chartAndContent);
 
@@ -67,8 +67,8 @@ namespace chartback.Controllers
         {
             Chart c = new Chart();
 
-            var chartCount = (from a in db.Chart
-                             select a).Count();
+            //var chartCount = (from a in db.Chart
+            //                 select a).Count();
 
             //c.ChartId = chartCount + 1;
             c.Headline = chart.Headline;
